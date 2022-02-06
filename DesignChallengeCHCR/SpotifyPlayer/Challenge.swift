@@ -60,6 +60,8 @@ class Challenge: UIViewController {
         
         playButton.topAnchor.constraint(equalTo: albumLabel.bottomAnchor, constant: 8).isActive = true
         playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
+        playButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+        playButton.widthAnchor.constraint(equalToConstant: buttonHeight).isActive = true
         
         previewStartLabel.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 4).isActive = true
         previewStartLabel.centerYAnchor.constraint(equalTo: playButton.centerYAnchor).isActive = true
