@@ -64,12 +64,25 @@ class ViewController: UIViewController {
     }
     
     func makeButton(text: String, color: UIColor) -> UIButton {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(title, for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.contentEdgeInsets = UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
-        button.backgroundColor = color
+        
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = color
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
+        button.configuration = config
+//        button.setTitle(title, for: .normal)
+//        button.titleLabel?.adjustsFontSizeToFitWidth = true
+//        button.contentEdgeInsets = UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
+//        button.backgroundColor = color
+        
+        let attributeText = NSMutableAttributedString(string: text, attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.kern: 1
+        ])
+        
+        button.setAttributedTitle(attributeText, for: .normal)
         
         return button
     }
